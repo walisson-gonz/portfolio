@@ -1,13 +1,15 @@
 package br.com.portfolio.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Table(name = "postagem")
+@Table(name = "tb_postagem")
 public class Postagem {
 
     @Id
@@ -23,7 +25,11 @@ public class Postagem {
     private String texto;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date = new java.sql.Date(System.currentTimeMillis());
+    private Date data = new java.sql.Date(System.currentTimeMillis());
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Tema tema;
 
     public long getId() {
         return id;
@@ -49,11 +55,19 @@ public class Postagem {
         this.texto = texto;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getData() {
+        return data;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Tema getTema() {
+        return tema;
+    }
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
     }
 }
