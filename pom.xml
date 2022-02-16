@@ -8,7 +8,7 @@
         <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>br.com.danielpadua</groupId>
+    <groupId>br.com.portfolio</groupId>
     <artifactId>java-spring-idea-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Portfolio</name>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <scope>import</scope>
         </dependency>
 
         <dependency>
@@ -56,7 +56,15 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
         </dependency>
+
+            <!-- ... other dependency elements ... -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+            </dependency>
+
     </dependencies>
 
     <build>
